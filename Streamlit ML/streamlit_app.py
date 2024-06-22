@@ -80,7 +80,7 @@ def evaluate_model(model, X_test, y_test):
     ax1.set_title('Actual vs. Predicted')
     ax1.set_xlabel('Actual')
     ax1.set_ylabel('Predicted')
-
+# 
     residuals = y_test - y_pred
     ax2.scatter(y_test, residuals, alpha=0.7)
     ax2.set_title('Residuals')
@@ -115,7 +115,7 @@ def main():
 
     # Select  algorithm
     algorithm = st.sidebar.selectbox('Select Regression Algorithm',
-                                     ['Linear Regression', 'Random Forest Regressor', 'Support Vector Regressor'])
+                                     ['Linear Regression', 'Random Forest Regressor'])#, 'Support Vector Regressor'])
 
     # Train model
     model = train_model(df, algorithm)
