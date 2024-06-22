@@ -19,8 +19,9 @@ from sklearn.impute import SimpleImputer
 
 
 def load_housing():
-    #print("Current working directory:", os.getcwd())
-    df = pd.read_csv('housing.csv')
+    current_dir = os.path.dirname(__file__)
+    file_path = os.path.join(current_dir, 'housing.csv')
+    df = pd.read_csv(file_path)
     df = df.sample(2000)
     return df
 
