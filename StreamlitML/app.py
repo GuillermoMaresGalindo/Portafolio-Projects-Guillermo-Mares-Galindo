@@ -1,5 +1,5 @@
 # %% [markdown]
-# # librerias
+# # Libraries
 
 # %%
 import streamlit as st
@@ -17,7 +17,7 @@ from sklearn.impute import SimpleImputer
 
 # %%
 def load_housing():
-    df = pd.read_csv('./housing.csv')
+    df = pd.read_csv('housing.csv')
     return df
 
 # %%
@@ -26,8 +26,6 @@ def get_model(algorithm):
         model = LinearRegression()
     elif algorithm == 'Random Forest Regressor':
         model = RandomForestRegressor(n_estimators=100, random_state=42)
-   # elif algorithm == 'Support Vector Regressor':
-    #    model = SVR()
     return model
 
 # %%
@@ -80,7 +78,7 @@ def evaluate_model(model, X_test, y_test):
     ax1.set_title('Actual vs. Predicted')
     ax1.set_xlabel('Actual')
     ax1.set_ylabel('Predicted')
-# 
+
     residuals = y_test - y_pred
     ax2.scatter(y_test, residuals, alpha=0.7)
     ax2.set_title('Residuals')
@@ -88,8 +86,8 @@ def evaluate_model(model, X_test, y_test):
     ax2.set_ylabel('Residuals')
     st.pyplot(fig)
 
-def predict_prices(model, longitud,latitude, housing_median_age, total_rooms,total_bedrooms,population,households,median_income):
-    input_data = [[longitud,latitude, housing_median_age, total_rooms,total_bedrooms,population,households,median_income]]
+def predict_prices(model, longitud, latitude, housing_median_age, total_rooms, total_bedrooms, population, households, median_income):
+    input_data = [[longitud, latitude, housing_median_age, total_rooms, total_bedrooms, population, households, median_income]]
     predicted_prices = model.predict(input_data)
     return predicted_prices[0]
 
@@ -113,40 +111,29 @@ def main():
     # Load 
     df = load_housing()
 
-    # Select  algorithm
+    # Select algorithm
     algorithm = st.sidebar.selectbox('Select Regression Algorithm',
-                                     ['Linear Regression', 'Random Forest Regressor'])#, 'Support Vector Regressor'])
+                                     ['Linear Regression', 'Random Forest Regressor'])
 
     # Train model
     model = train_model(df, algorithm)
 
     # Streamlit UI
     st.sidebar.header('User Input Features')
-    longitud = st.sidebar.slider('longitude', df['longitude'].min(), df['longitude'].max(),
-                                    df['longitude'].mean())
+    longitud = st.sidebar.slider('longitude', df['longitude'].min(), df['longitude'].max(), df['longitude'].mean())
     latitude = st.sidebar.slider('latitude', df['latitude'].min(), df['latitude'].max(), df['latitude'].mean())
-    housing_median_age = st.sidebar.slider('housing_median_age', df['housing_median_age'].min(),
-                                 df['housing_median_age'].max(), df['housing_median_age'].mean())
-    total_rooms = st.sidebar.slider('total_rooms', df['total_rooms'].min(),
-                                     df['total_rooms'].max(), df['total_rooms'].mean())
-    total_bedrooms = st.sidebar.slider('total_bedrooms', df['total_bedrooms'].min(), df['total_bedrooms'].max(),
-                                   df['total_bedrooms'].mean())
-    population = st.sidebar.slider('population', df['population'].min(), df['population'].max(),
-                                   df['population'].mean())
-    households = st.sidebar.slider('households', df['households'].min(), df['households'].max(),
-                                   df['households'].mean())
-    median_income = st.sidebar.slider('median_income', df['median_income'].min(), df['median_income'].max(),
-                                   df['median_income'].mean())
+    housing_median_age = st.sidebar.slider('housing_median_age', df['housing_median_age'].min(), df['housing_median_age'].max(), df['housing_median_age'].mean())
+    total_rooms = st.sidebar.slider('total_rooms', df['total_rooms'].min(), df['total_rooms'].max(), df['total_rooms'].mean())
+    total_bedrooms = st.sidebar.slider('total_bedrooms', df['total_bedrooms'].min(), df['total_bedrooms'].max(), df['total_bedrooms'].mean())
+    population = st.sidebar.slider('population', df['population'].min(), df['population'].max(), df['population'].mean())
+    households = st.sidebar.slider('households', df['households'].min(), df['households'].max(), df['households'].mean())
+    median_income = st.sidebar.slider('median_income', df['median_income'].min(), df['median_income'].max(), df['median_income'].mean())
 
     # Predict scenario
     if st.sidebar.button('Predict'):
-        predicted_apparent_price = predict_prices(model, longitud, latitude,
-                                                                      housing_median_age, total_rooms, total_bedrooms,population,
-                                                                      households,median_income)
-        st.sidebar.success(f'Predicted price house: {predicted_apparent_price:.2f}  (km/h)')
-        print(f'Predicted price house: {predicted_apparent_price:.2f}  (km/h)')
+        predicted_apparent_price = predict_prices(model, longitud, latitude, housing_median_age, total_rooms, total_bedrooms, population, households, median_income)
+        st.sidebar.success(f'Predicted price house: {predicted_apparent_price:.2f}')
+        print(f'Predicted price house: {predicted_apparent_price:.2f}')
 
 if __name__ == '__main__':
     main()
-
-
