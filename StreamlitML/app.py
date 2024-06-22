@@ -5,7 +5,7 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
-
+import os
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
 from sklearn.ensemble import RandomForestRegressor
@@ -16,9 +16,12 @@ from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score, e
 from sklearn.impute import SimpleImputer
 
 # %%
+
+
 def load_housing():
+    #print("Current working directory:", os.getcwd())
     df = pd.read_csv('housing.csv')
-    df=df.sample(2000)
+    df = df.sample(2000)
     return df
 
 # %%
@@ -30,7 +33,27 @@ def get_model(algorithm):
     return model
 
 # %%
+def validate_data_types(df):
+    expected_types = {
+        'longitude': np.float64,
+        'latitude': np.float64,
+        'housing_median_age': np.float64,
+        'total_rooms': np.float64,
+        'total_bedrooms': np.float64,
+        'population': np.float64,
+        'households': np.float64,
+        'median_income': np.float64,
+        'median_house_value': np.float64
+    }
+    
+    for column, expected_type in expected_types.items():
+        if df[column].dtype != expected_type:
+            df[column] = df[column].astype(expected_type)
+    return df
+
+# %%
 def train_model(df, algorithm='Linear Regression'):
+    df = validate_data_types(df)  # Validate and convert data types
     X = df[['longitude', 'latitude', 'housing_median_age', 'total_rooms',
        'total_bedrooms', 'population', 'households', 'median_income']]
     y = df['median_house_value']
