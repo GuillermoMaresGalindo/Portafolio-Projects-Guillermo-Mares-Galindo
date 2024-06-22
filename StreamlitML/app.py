@@ -22,7 +22,6 @@ def load_housing():
     current_dir = os.path.dirname(__file__)
     file_path = os.path.join(current_dir, 'housing.csv')
     df = pd.read_csv(file_path)
-    df = df.sample(2000)
     return df
 
 # %%
