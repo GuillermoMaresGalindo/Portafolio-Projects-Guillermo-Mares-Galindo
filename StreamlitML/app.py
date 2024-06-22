@@ -18,6 +18,7 @@ from sklearn.impute import SimpleImputer
 # %%
 def load_housing():
     df = pd.read_csv('housing.csv')
+    df=df.sample(2000)
     return df
 
 # %%
