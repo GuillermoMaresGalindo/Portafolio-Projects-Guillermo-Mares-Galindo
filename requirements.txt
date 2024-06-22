@@ -2,7 +2,6 @@ pip==24
 ipykernel==6.29.4
 numpy==1.26.3
 pandas==2.1.4
-pyodbc==4.0.32
 matplotlib==3.8.2 # visualizacion
 plotly==5.19.0    # visualizacion
 missingno==0.5.0
