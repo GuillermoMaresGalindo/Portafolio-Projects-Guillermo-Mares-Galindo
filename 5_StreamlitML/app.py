@@ -63,7 +63,12 @@ def train_model(df, algorithm='Linear Regression'):
     model = get_model(algorithm)
     model.fit(X_train, y_train)
     evaluate_model(model, X_test, y_test)
-
+    if algorithm == 'Random Forest Regressor':
+        feature_importances = pd.DataFrame({'Feature': X.columns, 'Importance': model.feature_importances_})
+        feature_importances = feature_importances.sort_values(by='Importance', ascending=False)
+        st.subheader('Feature Importances:')
+        st.write(feature_importances)
+    
     # Save the model to a pickle file
     with open(f'{algorithm.lower().replace(" ", "_")}_model.pkl', 'wb') as model_file:
         pickle.dump(model, model_file)
@@ -109,6 +114,8 @@ def evaluate_model(model, X_test, y_test):
     ax2.set_xlabel('Actual')
     ax2.set_ylabel('Residuals')
     st.pyplot(fig)
+
+# add a feature importance if its selected random forest
 
 def predict_prices(model, longitud, latitude, housing_median_age, total_rooms, total_bedrooms, population, households, median_income):
     input_data = [[longitud, latitude, housing_median_age, total_rooms, total_bedrooms, population, households, median_income]]
