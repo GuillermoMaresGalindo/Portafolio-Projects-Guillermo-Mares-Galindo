@@ -130,13 +130,13 @@ def main():
 
     st.header('Dataset Information')
     st.markdown("""
-    ## Dataset Context
+    ### Dataset Context
     This dataset contains information about housing prices in California. It includes various features that might influence house prices, such as location, number of rooms, population, and median income in the area.
 
-    ## Kaggle Link
+    ### Kaggle Link
     The dataset is available on Kaggle at: [California Housing Prices](https://www.kaggle.com/datasets/camnugent/california-housing-prices)
 
-    ## Introduction
+    ### Introduction
     This Streamlit app allows you to explore and predict housing prices in California using different regression algorithms. You can adjust various features to see how they affect the predicted house price.
     """)
 
