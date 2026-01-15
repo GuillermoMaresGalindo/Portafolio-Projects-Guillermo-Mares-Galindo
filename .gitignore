@@ -1,7 +1,34 @@
+# Environment
+.env
+*.env
 Credentials.env
-venv
-.venv
-Streamlit ML/housing.csv
-Streamlit ML/random_forest_regressor_model.pkl
-Streamlit ML/support_vector_regressor_model.pkl
-7_Tableau
+venv/
+.venv/
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Models
+*.pkl
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Project specific
+05_StreamlitML/housing.csv
+05_StreamlitML/*.pkl
+
+# Tableau temp files
+~*.twbr
+08_Tableau/~*
