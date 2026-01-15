@@ -2,18 +2,17 @@
 
 ![Python](https://img.shields.io/badge/Python-3.10+-blue?logo=python&logoColor=white)
 ![License](https://img.shields.io/badge/License-MIT-green)
-![Last Updated](https://img.shields.io/badge/Updated-Jan%202026-orange)
 
-A collection of data science and machine learning projects showcasing different skills and technologies.
+A collection of data science and machine learning projects.
 
-## 🔗 Live Demos
+## Live Demos
 
 - [Streamlit ML App](https://portafolio-projects-guillermo-mares-galindo-cka9dg9ozfyxgsg3cs.streamlit.app/)
 - [Tableau Sales Dashboard](https://public.tableau.com/app/profile/guillermo1314/viz/SalesDashboard_17254159148610/SalesDashboard?publish=yes)
 
 ---
 
-## 📁 Projects
+## Projects
 
 | # | Project | Description | Technologies |
 |---|---------|-------------|--------------|
@@ -30,19 +29,16 @@ A collection of data science and machine learning projects showcasing different 
 
 ---
 
-## 🛠️ Technologies & Skills
+## Technologies
 
-**Languages:** Python, SQL
-
-**ML/Data:** scikit-learn, pandas, numpy, PySpark, XGBoost
-
-**Visualization:** matplotlib, seaborn, plotly, Tableau
-
-**Tools:** Jupyter, Streamlit, Git
+- Python, SQL
+- scikit-learn, pandas, numpy, PySpark, XGBoost
+- matplotlib, seaborn, plotly, Tableau
+- Jupyter, Streamlit, Git
 
 ---
 
-## 📦 Installation
+## Setup
 
 ```bash
 git clone https://github.com/GuillermoMaresGalindo/Portafolio-Projects-Guillermo-Mares-Galindo.git
@@ -51,13 +47,11 @@ pip install -r requirements.txt
 ```
 
 > [!TIP] 
-> Press `.` on GitHub to open VS Code in browser for easy navigation.
+> Press `.` on GitHub to open VS Code in browser.
 
 ---
 
-## 📫 Contact
+## Contact
 
 - **Email**: [guillermo.mares07@gmail.com](mailto:guillermo.mares07@gmail.com)
 - **LinkedIn**: [Guillermo Mares Galindo](https://www.linkedin.com/in/guillermo-mares/)
-
-Thanks for visiting!

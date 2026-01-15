@@ -4,7 +4,7 @@ A web application for training and evaluating machine learning models interactiv
 
 ## Live Demo
 
-🔗 [Open the app](https://portafolio-projects-guillermo-mares-galindo-cka9dg9ozfyxgsg3cs.streamlit.app/)
+[Open the app](https://portafolio-projects-guillermo-mares-galindo-cka9dg9ozfyxgsg3cs.streamlit.app/)
 
 ## Features
 
